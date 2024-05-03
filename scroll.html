@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>horizontal scroll image gallery</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="gallery-wrap">
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ5GlIqUkrkgiZcDLvRrfmO-z1NNxzXPVs0-8j_TVXIGQ&s" id="nextBtn" height="45px">
+    
+    <div class="gallery">
+      <div>
+        <span><img src="images/IMG_20240426_021613_251.jpg"></span>
+        <span><img src="images/IMG_20240427_134034_711.jpg"></span>
+        <span><img src="images/IMG_20240427_134043_213.jpg"></span>
+        
+      </div>
+      <div>
+        <span><img src="images/IMG_20240427_134055_334.jpg"></span>
+        <span><img src="images/IMG_20240427_134123_790.jpg"></span>
+        <span><img src="images/IMG_20240427_134130_940.jpg"></span>
+        
+      </div>  
+    </div>
+ 
+    <img src="https://png.pngtree.com/png-clipart/20190516/original/pngtree-previous-icon-wood-png-image_3559792.jpg" id="backBtn" height="45px">
+  </div>
+
+  <script>
+    let scrollcontainer = document.querySelector(".gallery");
+    let backBtn = document.getElementById("backBtn");
+    let nextBtn = document.getElementById("nextBtn");
+
+    scrollcontainer.addEventListener("wheel",(evt) => {
+      evt.preventDefault();
+      scrollcontainer.scrollLeft += evt.deltaY;
+      scrollcontainer.style.scrollBehavior = "auto";
+
+    });
+
+    nextBtn.addEventListener("click", ()=>{
+      scrollcontainer.style.scrollBehavior = "smooth";
+      scrollcontainer.scrollLeft -= 900;
+    });
+
+    backBtn.addEventListener("click", ()=>{
+      scrollcontainer.style.scrollBehavior = "smooth";
+      scrollcontainer.scrollLeft += 900;
+    });
+
+
+  </script>
+    
+   
+</body>
+</html>
